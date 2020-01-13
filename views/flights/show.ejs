@@ -1,0 +1,54 @@
+<%- include('../partials/header') %>
+
+<section id="flight-detail">
+  <label>Flight:</label>
+  <div><%= flight.airline %>: <%= flight.flightNo %></div>
+  <label>Departs:</label>
+  <div><%= flight.departs.toLocaleDateString() %></div>
+  <label>Leaving From:</label>
+  <div><%= flight.airport %></div>
+  <label>Destinations:</label>
+</section>
+<br />
+<section id="destinations-detail">
+  <h2>Add Destination</h2>
+  <form
+    id="add-dest-form"
+    method="POST"
+    action="/flights/<%= flight._id %>/destinations"
+  >
+    <label>Destination:</label>
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DAL">DAL</option>
+      <option value="LAX">LAX</option>
+      <option value="SEA">SEA</option>
+    </select>
+    <label>Arrival Date:</label>
+    <input type="date" name="arrival" />
+    <input type="submit" value="Add Flight" />
+  </form>
+</section>
+<br />
+<section id="tickets-detail">
+  <h2>Tickets</h2>
+  <table>
+    <tr>
+      <th>Seat</th>
+      <th>Price</th>
+    </tr>
+    <% tickets.forEach(function(t) { %>
+    <tr>
+      <td><%= t.seat %></td>
+      <td><%= t.price %></td>
+    </tr>
+    <% }) %>
+  </table>
+
+  <br />
+  <a class="new" href="/flights/<%= flight._id %>/tickets/new"
+    >Create a New Ticket</a
+  >
+</section>
+
+<%- include('../partials/footer') %>

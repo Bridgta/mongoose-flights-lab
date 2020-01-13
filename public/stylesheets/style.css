@@ -1,8 +1,76 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main";
 }
 
-a {
-  color: #00B7FF;
+#flight-detail,
+#new-flight {
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 20px;
+}
+
+body > nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: lightblue;
+}
+
+nav > a {
+  margin: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: #1a1a14;
+}
+
+nav > a:hover,
+td > a:hover,
+.new:hover {
+  color: #ebebe0;
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5px;
+}
+
+#add-dest-form {
+  display: flex;
+  flex-direction: column;
+}
+
+th {
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 5px;
+}
+
+td > a,
+.new {
+  border-radius: 10px;
+  background-color: #adad85;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1a1a14;
+}
+
+td > a {
+  padding: 4px;
+}
+.new {
+  font-size: 20px;
+  padding: 10px;
 }
